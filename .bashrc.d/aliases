@@ -1,0 +1,7 @@
+#!/bin/bash
+eval `dircolors -b`
+alias ls='ls --color=auto'
+alias ll='ls -l'
+alias lt='ll -t'
+alias la='ll -a'
+alias grep='grep --color=auto'

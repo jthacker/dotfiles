@@ -1,0 +1,8 @@
+#!/bin/sh
+white="\[\e[37;1m\]"
+dark_blue="\[\e[34;1m\]"
+green="\[\e[32;1m\]"
+reset="\[\e[0m\]"
+export PS1="
+(\t) ($green\u$dark_blue@\H$reset) (\$(~/.bin/abbr_pwd.py))
+$green>$reset "
