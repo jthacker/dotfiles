@@ -5,4 +5,4 @@ set shiftwidth=3
 set softtabstop=3
 set si
 set autoindent
-set guioptions=
+set guioptions=A
