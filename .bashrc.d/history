@@ -1,9 +1,6 @@
 #!/bin/sh
-
-# don't put duplicate lines in the history. See bash(1) for more options
-# don't overwrite GNU Midnight Commander's setting of `ignorespace'.
-HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
-# ... or force ignoredups and ignorespace
-HISTCONTROL=ignoreboth
-
+export HISTCONTROL=erasedups
+export HISTSIZE=10000
 shopt -s histappend
+bind '"\e[A"':history-search-backward
+bind '"\e[B"':history-search-forward
