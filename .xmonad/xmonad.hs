@@ -23,6 +23,7 @@ main = do
                                  {  ppOutput = hPutStrLn xmproc
                                  ,  ppTitle = xmobarColor "green" "" . shorten 50
                                  }
+      ,  modMask              = mod4Mask
       ,  terminal             = "gnome-terminal"
       ,  focusedBorderColor   = "#FFFFFF"
       ,  normalBorderColor    = "#000000"
