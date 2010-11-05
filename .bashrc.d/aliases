@@ -5,3 +5,7 @@ alias ll='ls -l'
 alias lt='ll -t'
 alias la='ll -a'
 alias grep='grep --color=auto'
+# preserves aliases in sudo
+alias sudo='sudo '
+# Arch linux
+alias pacman=pacman-color
