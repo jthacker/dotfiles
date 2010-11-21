@@ -7,6 +7,9 @@ import qualified Data.Map as M
 import XMonad.Hooks.DynamicLog
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Hooks.ManageDocks
+import qualified XMonad.StackSet as W
+import XMonad.Hooks.ManageHelpers
+import XMonad.Layout.NoBorders
 import System.IO
 
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
@@ -23,9 +26,14 @@ main = do
                                  {  ppOutput = hPutStrLn xmproc
                                  ,  ppTitle = xmobarColor "green" "" . shorten 50
                                  }
+      ,  manageHook           = myManageHooks
       ,  modMask              = mod4Mask
       ,  terminal             = "gnome-terminal"
       ,  focusedBorderColor   = "#FFFFFF"
       ,  normalBorderColor    = "#000000"
       ,  keys                 = \c -> myKeys c `M.union` keys defaultConfig c
       }
+
+myManageHooks = composeAll
+   [ isFullscreen --> doFullFloat
+   ]
