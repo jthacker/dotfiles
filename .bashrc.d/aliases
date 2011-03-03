@@ -1,11 +1,12 @@
 #!/bin/bash
-eval `dircolors -b`
-alias ls='ls --color=auto'
+alias ..='cd ..'
+
+alias ls='ls -h --color=auto'
+[[ "$PLATFORM" == "mac" ]] && alias ls='gls -h --color=auto'
 alias ll='ls -l'
 alias lt='ll -t'
 alias la='ll -a'
 alias grep='grep --color=auto'
-# preserves aliases in sudo
-alias sudo='sudo '
+
 # Arch linux
 alias pacman=pacman-color
