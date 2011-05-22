@@ -1,0 +1,17 @@
+.           repeats the last command
+^[          works the same as esc
+:w  <file>  writes file
+:e  <file>  opens file
+:e!         reload current file
+^d          page down
+^u          page up
+b           back one word
+e           goto end of word, or end of next word
+w           forward one word
+p           pastes one line below
+c <motion>  change
+cf <letter> change until next letter
+:%s/foo/bar/g   % selects entire document, substitutes foo for bar for each occurrence
+#           searches up
+*           searches down
+d/foo       delete until find foo

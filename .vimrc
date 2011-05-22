@@ -1,6 +1,9 @@
-filetyp on
+"Now vim plugins can go in their own directories under ~/.vim/bundle/"
+call pathogen#runtime_append_all_bundles()
+
+filetype on
 filetype plugin on
-filetyp indent on
+filetype indent on
 syntax on
 
 set hlsearch
@@ -27,3 +30,4 @@ set wildmenu
 
 let g:lisp_rainbow=1
 let g:paredit_shortmaps=1
+
