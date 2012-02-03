@@ -7,6 +7,7 @@ alias ll='ls -l'
 alias lt='ll -t'
 alias la='ll -a'
 alias grep='grep --color=auto'
+alias "youtube-dl"='youtube-dl --title'
 
 # Arch linux
 alias pacman=pacman-color
