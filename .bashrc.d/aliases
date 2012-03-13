@@ -8,6 +8,7 @@ alias lt='ll -t'
 alias la='ll -a'
 alias grep='grep --color=auto'
 alias "youtube-dl"='youtube-dl --title'
+alias math="/Applications/Mathematica.app/Contents/MacOS/MathKernel"
 
 # Arch linux
 alias pacman=pacman-color
