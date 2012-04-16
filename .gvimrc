@@ -1,2 +1,2 @@
 colorscheme desert
-set gfn=Inconsolata:h11
+set gfn=Inconsolata Medium 14
