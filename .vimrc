@@ -1,5 +1,5 @@
 "Now vim plugins can go in their own directories under ~/.vim/bundle/"
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 
 filetype on
 filetype plugin on

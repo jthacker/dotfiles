@@ -9,7 +9,7 @@ fi
 export PLATFORM
 
 # Add my bin to the path as well as /usr/local
-export PATH=~/.bin:/usr/local/bin:$PATH
+export PATH=~/.bin:/usr/local/bin:/usr/loca/sbin:$PATH
 
 . $HOME/.bashrc
 
