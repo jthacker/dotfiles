@@ -1,5 +1,6 @@
-import collections, itertool
+import collections, itertools
 import cPickle as pickle
+from redis import Redis
 from decorator import decorator
 from UserDict import DictMixin
 from hashlib import sha1
