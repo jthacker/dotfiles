@@ -1,2 +1,2 @@
-colorscheme desert
-set gfn=Inconsolata:h11
+colorscheme jellybeans
+set gfn=Menlo:h15

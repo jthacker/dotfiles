@@ -10,6 +10,7 @@ export PLATFORM
 
 # Add my bin to the path as well as /usr/local
 export PATH=~/.bin:/usr/local/bin:/usr/loca/sbin:$PATH
+export PYTHONPATH=~/.lib/python
 
 . $HOME/.bashrc
 
@@ -25,3 +26,11 @@ fi
 unset PLATFORM
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# Setting PATH for EPD-7.3-1
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/Current/bin:${PATH}"
+export PATH
+
+MKL_NUM_THREADS=1
+export MKL_NUM_THREADS
