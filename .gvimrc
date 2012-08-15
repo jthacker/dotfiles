@@ -1,2 +1,2 @@
 colorscheme jellybeans
-set guifont=DejaVu Sans Mono 13
+set guifont=DejaVu\ Sans\ Mono\ 13
