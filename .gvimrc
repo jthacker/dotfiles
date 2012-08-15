@@ -1,2 +1,2 @@
 colorscheme jellybeans
-set gfn=Menlo:h15
+set guifont=DejaVu Sans Mono 13
