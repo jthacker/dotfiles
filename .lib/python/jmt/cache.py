@@ -1,5 +1,6 @@
 import collections, itertools
 import cPickle as pickle
+import numpy as np
 from redis import Redis
 from decorator import decorator
 from UserDict import DictMixin

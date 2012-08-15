@@ -6,9 +6,9 @@ alias ls='ls -h --color=auto'
 alias ll='ls -l'
 alias lt='ll -t'
 alias la='ll -a'
-alias grep='grep --color=auto'
+alias grep='grep -n --color=auto'
 alias "youtube-dl"='youtube-dl --title --no-mtime'
-alias math="/Applications/Mathematica.app/Contents/MacOS/MathKernel"
+[[ "$PLATFORM" == "mac" ]] && alias math="/Applications/Mathematica.app/Contents/MacOS/MathKernel"
 
 # Arch linux
 alias pacman=pacman-color
