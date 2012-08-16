@@ -1,4 +1,4 @@
-set guifont=Menlo:h15
+set guifont=DejaVu\ Sans\ Mono\ 13
 
 " (e) Native tab labels
 " (a) Autoselect: Visually selected text is available to windowing system

@@ -1,6 +1,8 @@
+#!/bin/bash
 xsetroot -cursor_name left_ptr &
-unclutter -grab &
-gnome-settings-daemon &
+unclutter -grab -root &
+
+trayer --edge top --align center --SetDockType true --SetPartialStrut true --widthtype request --expand true --height 18 --transparent true --tint 0x000000 &
 
 eval $(gnome-keyring-daemon)
 export GNOME_KEYRING_SOCKET
@@ -9,4 +11,7 @@ export SSH_AUTH_SOCK
 export GPG_AGENT_INFO
 
 start-pulseaudio-x11
-exec xmonad
+/usr/lib/notification-daemon-1.0/notification-daemon &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1&
+nm-applet &
+xmonad

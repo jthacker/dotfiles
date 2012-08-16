@@ -26,7 +26,8 @@ main = do
                                  {  ppOutput = hPutStrLn xmproc
                                  ,  ppTitle = xmobarColor "green" "" . shorten 50
                                  }
-      ,  manageHook           = myManageHooks
+--      ,  manageHook           = myManageHooks
+      ,  manageHook           = manageDocks <+> manageHook defaultConfig
       ,  modMask              = mod4Mask
       ,  terminal             = "gnome-terminal"
       ,  focusedBorderColor   = "#FFFFFF"
@@ -34,6 +35,6 @@ main = do
       ,  keys                 = \c -> myKeys c `M.union` keys defaultConfig c
       }
 
-myManageHooks = composeAll
-   [ isFullscreen --> doFullFloat
-   ]
+--myManageHooks = composeAll
+--   [ isFullscreen --> doFullFloat
+--   ]

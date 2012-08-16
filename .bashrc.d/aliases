@@ -11,4 +11,4 @@ alias "youtube-dl"='youtube-dl --title --no-mtime'
 [[ "$PLATFORM" == "mac" ]] && alias math="/Applications/Mathematica.app/Contents/MacOS/MathKernel"
 
 # Arch linux
-alias pacman=pacman-color
+[[ "$PLATFORM" == "linux" ]] && alias packer='packer --noconfirm'
