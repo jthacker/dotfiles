@@ -1,6 +1,0 @@
-[submodule ".opt/slime"]
-	path = .opt/slime
-	url = https://github.com/nablaone/slime.git
-[submodule ".opt/clojure-mode"]
-	path = .opt/clojure-mode
-	url = https://github.com/technomancy/clojure-mode.git
