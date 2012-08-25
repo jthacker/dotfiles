@@ -4,3 +4,6 @@ set guifont=DejaVu\ Sans\ Mono:h13
 " (a) Autoselect: Visually selected text is available to windowing system
 " (c) Prefer console dialogs instead of gui
 set guioptions=aec
+
+" Disable bell
+set vb
