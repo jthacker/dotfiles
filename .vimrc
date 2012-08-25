@@ -28,14 +28,20 @@ set nowrap		"Do not wrap lines
 
 "Next 3 required for powerline
 set nocompatible	"Don't worry about compatibility with vi
-set laststatus=2	"Always show statusline
+"set laststatus=2	"Always show statusline
 set encoding=utf-8	"Show unicode glyphs
 
 colorscheme jellybeans
 set t_Co=256
 
 " Slimv options
-let g:lisp_rainbow=1
+let g:lisp_rainbow=0
 
 " Powerline Options
 let g:Powerline_symbols = 'unicode'
+
+highlight Cursor guifg=black guibg=white
+highlight iCursor guifg=white guibg=red
+set guicursor=n-v-c:ver2-Cursor " Set normal-visual-commandline mode cursor to be 2% wide vertical bar
+set guicursor+=i:ver2-iCursor   " Set insert mode cursor to be 2% wide vertical bar
+set guicursor+=a:blinkon0       " Disable all blinking:
