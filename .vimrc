@@ -19,12 +19,14 @@ set smartindent
 set autoindent
 
 set shortmess=atI	"Message abreviations
-set scrolloff=10
+"set scrolloff=10   "Keep n lines around cursor. Nice for being able to scroll
+"past the end of the file but bad because when you click into the buffer then
+"it shifts the contents to keep n lines between the cursor and the edges of
+"the window.  However you can still scroll with the mouse past the EOF
 set history=1000
 set wildmenu 		"Enhanced command line completion
 set ruler		"Show line and column number of cursor
 set number		"Show line numbers
-set nowrap		"Do not wrap lines
 
 "Next 3 required for powerline
 set nocompatible	"Don't worry about compatibility with vi
@@ -39,9 +41,3 @@ let g:lisp_rainbow=0
 
 " Powerline Options
 let g:Powerline_symbols = 'unicode'
-
-highlight Cursor guifg=black guibg=white
-highlight iCursor guifg=white guibg=red
-set guicursor=n-v-c:ver2-Cursor " Set normal-visual-commandline mode cursor to be 2% wide vertical bar
-set guicursor+=i:ver2-iCursor   " Set insert mode cursor to be 2% wide vertical bar
-set guicursor+=a:blinkon0       " Disable all blinking:
