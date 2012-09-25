@@ -1,34 +1,50 @@
 import collections, itertools
 import cPickle as pickle
 import numpy as np
-from redis import Redis
+import redis
 from decorator import decorator
 from UserDict import DictMixin
 from hashlib import sha1
 
 class Cache(DictMixin):
     def __init__(self):
-        self._redis = Redis()
+        self._redis = redis.Redis()
 
     def __contains__(self, key):
-        return key in self._redis
+        try:
+            hasKey = key in self._redis
+        except redis.exceptions.ConnectionError as e:
+            hasKey = False
+            print "[Cache Error] Unable to connect to redis: (%s)" % e.message
+        
+        return hasKey
+
+    def _stats(self):
+        info = self._redis.info()
+        msg = "memory %s [%s]" % (info['used_memory_peak_human'], info['used_memory_human'])
+        return msg
+
+    def _log(self, key, msg):
+        print "[CACHE %s] %s [%s]" % (key, msg, self._stats())
 
     def __getitem__(self, key):
         '''According to the doc for __getitem__, if a key is missing then
         a KeyError should be raised.'''
-        print "CACHE GET: key=%s" % str(key)
+        self._log('GET', "key=%s" % str(key))
+
         val = self._redis.get(key)
         if not val:
             raise KeyError(key)
         return pickle.loads(val) if val else None
 
     def __setitem__(self, key, item):
-        print "CACHE SET: key=%s" % str(key)
+        self._log('SET', "key=%s" % str(key))
         self._redis.set(key, pickle.dumps(item, pickle.HIGHEST_PROTOCOL))
 
     def __delitem__(self, key):
-        '''According to the doc for __delitem__, if the key missing then
+        '''According to the doc for __delitem__, if a key is missing then
         a KeyError should be raised'''
+        self._log('REM', "key=%s" % str(key))
         self._redis.delete(key)
 
     def keys(self):
@@ -79,12 +95,10 @@ _cache = Cache()
 @decorator
 def persistedcache(func, *args, **kw):
     keyHash = sha1(str(map(make_hash, (func.func_code, args, kw)))).hexdigest()
-    key = "%s:%s" % (func.func_name,keyHash)
+    key = func.func_name + ':' + keyHash
 
     if key in _cache:
         return _cache[key]
     else:
         _cache[key] = result = func(*args, **kw)
         return result
-
-

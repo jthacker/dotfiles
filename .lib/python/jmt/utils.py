@@ -31,6 +31,8 @@ class Fitter(object):
 
 
 class ProgressMeter(object):
+    """Displays a CLI progress meter"""
+
     def __init__(self, maxVal, msg):
         self._progress = 0
         self._max = float(maxVal)
