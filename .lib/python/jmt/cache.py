@@ -21,7 +21,7 @@ class Cache(DictMixin):
 
     def _stats(self):
         info = self._redis.info()
-        msg = "memory %s [%s]" % (info['used_memory_peak_human'], info['used_memory_human'])
+        msg = "memory %s (peak %s)" % (info['used_memory_human'], info['used_memory_peak_human'])
         return msg
 
     def _log(self, key, msg):
@@ -94,7 +94,7 @@ _cache = Cache()
 
 @decorator
 def persistedcache(func, *args, **kw):
-    keyHash = sha1(str(map(make_hash, (func.func_code, args, kw)))).hexdigest()
+    keyHash = sha1(str(map(make_hash, (func.func_code.co_code, args, kw)))).hexdigest()
     key = func.func_name + ':' + keyHash
 
     if key in _cache:
