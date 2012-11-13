@@ -1,4 +1,4 @@
-set guifont=DejaVu\ Sans\ Mono:h16
+set guifont=DejaVu\ Sans\ Mono\ 12
 
 " (e) Native tab labels
 " (a) Autoselect: Visually selected text is available to windowing system
@@ -6,7 +6,7 @@ set guifont=DejaVu\ Sans\ Mono:h16
 set guioptions=aec
 
 " Disable bell
-set vb
+set novb
 
 highlight Cursor  guifg=NONE guibg=white
 highlight iCursor guifg=NONE guibg=red
