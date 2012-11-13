@@ -1,10 +1,12 @@
-import collections, itertools
 import cPickle as pickle
 import numpy as np
 import redis
 from decorator import decorator
 from UserDict import DictMixin
 from hashlib import sha1
+import logging
+
+log = logging.getLogger('jmt.cache')
 
 class Cache(DictMixin):
     def __init__(self):
@@ -15,17 +17,17 @@ class Cache(DictMixin):
             hasKey = key in self._redis
         except redis.exceptions.ConnectionError as e:
             hasKey = False
-            print "[Cache Error] Unable to connect to redis: (%s)" % e.message
+            log.warn("[Cache Error] Unable to connect to redis: (%s)" % e.message)
         
         return hasKey
 
     def _stats(self):
         info = self._redis.info()
-        msg = "memory %s (peak %s)" % (info['used_memory_human'], info['used_memory_peak_human'])
+        msg = "mem usage: %s (peak %s)" % (info['used_memory_human'], info['used_memory_peak_human'])
         return msg
 
     def _log(self, key, msg):
-        print "[CACHE %s] %s [%s]" % (key, msg, self._stats())
+        log.debug("[CACHE %s] %s [%s]" % (key, msg, self._stats()))
 
     def __getitem__(self, key):
         '''According to the doc for __getitem__, if a key is missing then
@@ -93,7 +95,13 @@ def make_hash(o):
 _cache = Cache()
 
 @decorator
-def persistedcache(func, *args, **kw):
+def memoize(func, *args, **kw):
+    '''Use this decorator to give you function persistent (across interpreter sessions, computers)
+    memoizing. If the same arguments are given to your function then this should result
+    in the same value being returned. For this reason, any function being memoized
+    should be a pure function with no side effects, at least you expect consistent
+    behaviour.
+    '''
     keyHash = sha1(str(map(make_hash, (func.func_code.co_code, args, kw)))).hexdigest()
     key = func.func_name + ':' + keyHash
 
