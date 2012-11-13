@@ -1,1 +1,1 @@
-export PYTHONPATH=~/.lib/python:/usr/local/lib/python2.7/site-packages
+export PYTHONPATH=~/.lib/python/src
