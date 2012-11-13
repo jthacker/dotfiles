@@ -19,23 +19,25 @@ set smartindent
 set autoindent
 
 set shortmess=atI	"Message abreviations
-set scrolloff=10
+"set scrolloff=10   "Keep n lines around cursor. Nice for being able to scroll
+"past the end of the file but bad because when you click into the buffer then
+"it shifts the contents to keep n lines between the cursor and the edges of
+"the window.  However you can still scroll with the mouse past the EOF
 set history=1000
 set wildmenu 		"Enhanced command line completion
 set ruler		"Show line and column number of cursor
 set number		"Show line numbers
-set nowrap		"Do not wrap lines
 
 "Next 3 required for powerline
 set nocompatible	"Don't worry about compatibility with vi
-set laststatus=2	"Always show statusline
+"set laststatus=2	"Always show statusline
 set encoding=utf-8	"Show unicode glyphs
 
 colorscheme jellybeans
 set t_Co=256
 
 " Slimv options
-let g:lisp_rainbow=1
+let g:lisp_rainbow=0
 
 " Powerline Options
 let g:Powerline_symbols = 'unicode'
