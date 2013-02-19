@@ -7,6 +7,7 @@ import qualified Data.Map as M
 import XMonad.Hooks.DynamicLog
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.SetWMName
 import qualified XMonad.StackSet as W
 import XMonad.Hooks.ManageHelpers
 import XMonad.Layout.NoBorders
@@ -26,10 +27,11 @@ main = do
                                  {  ppOutput = hPutStrLn xmproc
                                  ,  ppTitle = xmobarColor "green" "" . shorten 50
                                  }
+      ,  startupHook           = setWMName "LG3D"
 --      ,  manageHook           = myManageHooks
       ,  manageHook           = manageDocks <+> manageHook defaultConfig
-      ,  modMask              = mod4Mask
-      ,  terminal             = "terminator"
+      ,  modMask              = mod1Mask
+      ,  terminal             = "gnome-terminal"
       ,  focusedBorderColor   = "#FFFFFF"
       ,  normalBorderColor    = "#000000"
       ,  keys                 = \c -> myKeys c `M.union` keys defaultConfig c
