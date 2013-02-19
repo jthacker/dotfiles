@@ -1,2 +1,0 @@
-#!/bin/bash
-export PACMAN='pacman-color'
