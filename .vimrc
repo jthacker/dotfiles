@@ -39,5 +39,5 @@ set t_Co=256
 " Slimv options
 let g:lisp_rainbow=0
 
-" Powerline Options
-let g:Powerline_symbols = 'unicode'
+"Write with sudo
+cmap w!! %!sudo tee > /dev/null %

@@ -11,6 +11,7 @@ export SSH_AUTH_SOCK
 export GPG_AGENT_INFO
 
 start-pulseaudio-x11
+#/usr/lib/gnome-settings-daemon/gnome-settings-daemon &
 /usr/lib/notification-daemon-1.0/notification-daemon &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1&
 nm-applet &
