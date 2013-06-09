@@ -1,5 +1,6 @@
 #!/bin/bash
 xsetroot -cursor_name left_ptr &
+xsetroot -solid black &
 unclutter -grab -root &
 
 trayer --edge top --align center --SetDockType true --SetPartialStrut true --widthtype request --expand true --height 18 --transparent true --tint 0x000000 &
