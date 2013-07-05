@@ -8,8 +8,8 @@ elif [[ "$uname_str" == 'Linux' ]]; then
 fi
 export PLATFORM
 
-# Add my bin to the path as well as /usr/local
-export PATH=~/.bin:/usr/local/sbin:$PATH
+# Add my bin to the path
+export PATH=~/.bin:$PATH
 
 . $HOME/.bashrc
 
