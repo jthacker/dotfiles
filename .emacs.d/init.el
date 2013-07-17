@@ -3,6 +3,9 @@
 	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
 
+;; Make sure all the packages are installed
+(load-file "~/.emacs.d/elisp/installed-packages.el")
+
 ;; Use command buffer as visual bell
 (load-file "~/.emacs.d/elisp/visual-bell.el")
 
