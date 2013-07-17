@@ -1,4 +1,4 @@
-#! /usr/bin/env python -S
+#! /usr/bin/env python
 def abbreviatedPWD(currentDir = '.', abbreviateLength=20):
     import re,os
     homeDir = os.path.expanduser('~')
