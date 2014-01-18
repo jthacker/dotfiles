@@ -15,8 +15,8 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set smartindent
-set autoindent
+"set smartindent
+"set autoindent
 
 set shortmess=atI	"Message abreviations
 "set scrolloff=10   "Keep n lines around cursor. Nice for being able to scroll
