@@ -1,2 +1,2 @@
 export WORKON_HOME=~/.lib/python/venvs
-source /usr/local/bin/virtualenvwrapper.sh
+source `which virtualenvwrapper.sh`
