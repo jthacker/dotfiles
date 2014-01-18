@@ -3,6 +3,12 @@
 	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
 
+;; Make sure all the packages are installed
+(load-file "~/.emacs.d/elisp/installed-packages.el")
+
+;;(load-file "~/.emacs.d/elisp/evil-scout/evil-scout.el")
+;;(load-file "~/.emacs.d/elisp/evil-rebellion/evil-paredit-rebellion.el")
+
 ;; Use command buffer as visual bell
 (load-file "~/.emacs.d/elisp/visual-bell.el")
 
@@ -12,6 +18,18 @@
 ;; Use vim keybindings by default
 (require 'evil)
 (evil-mode 1)
+
+(load-file "~/.emacs.d/elisp/evil-leader/evil-leader.el")
+(require 'evil-leader)
+(global-evil-leader-mode)
+(evil-leader/set-leader ",")
+(evil-leader/set-key
+  "s" 'paredit-splice-sexp
+  "W" 'paredit-wrap-sexp
+  "J" 'paredit-join-sexp
+  "O" 'paredit-split-sexp)
+
+
 ;;(setq evil-default-cursor t)
 ;;(setq-default cursor-type 'bar)
 (setq evil-normal-state-cursor '("white" bar))
