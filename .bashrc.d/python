@@ -1,1 +1,2 @@
-export PYTHONPATH=~/.lib/python/src
+export WORKON_HOME=~/.lib/python/venvs
+source /usr/local/bin/virtualenvwrapper.sh
