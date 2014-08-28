@@ -1,1 +1,1 @@
-vim-pathogen/autoload/pathogen.vim
+/Users/jthacker/.vim/vim-pathogen/autoload/pathogen.vim
