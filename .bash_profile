@@ -8,6 +8,9 @@ elif [[ "$uname_str" == 'Linux' ]]; then
 fi
 export PLATFORM
 
+if  [[ "$PLATFORM" == "mac" ]]; then
+    export PATH=/usr/local/bin:$PATH
+fi
 # Add my bin to the path
 export PATH=~/.bin:$PATH
 
