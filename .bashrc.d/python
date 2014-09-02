@@ -1,2 +1,4 @@
 export WORKON_HOME=~/.lib/python/venvs
-source `which virtualenvwrapper.sh`
+
+venv=`which virtualenvwrapper.sh`
+[ -f "$venv" ] && source "$venv"
