@@ -16,11 +16,6 @@ export PATH=~/.bin:$PATH
 
 . $HOME/.bashrc
 
-# Generic Colouriser
-if [[ "$PLATFORM" == "mac" ]]; then
-    source "`brew --prefix grc`/etc/grc.bashrc"
-fi
-
 # Bash completion
 if [[ "$PLATFORM" == "mac" ]]; then
     bcpath=`brew --prefix`/etc/bash_completion
