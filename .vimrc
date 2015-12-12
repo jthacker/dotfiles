@@ -41,3 +41,24 @@ let g:lisp_rainbow=0
 
 "Write with sudo
 cmap w!! %!sudo tee > /dev/null %
+
+
+" Easier split navigation
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+
+
+" Highlight trailing whitespace in red
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+
+" Highlight doxygen comments in .c and .h files
+autocmd BufRead,BufNewFile *.h,*.c set filetype=c.doxygen
