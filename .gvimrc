@@ -1,4 +1,8 @@
-set guifont=DejaVu\ Sans\ Mono\ 9
+if has('gui_macvim')
+    set guifont=Monaco:h14
+else
+    set guifont=DejaVu\ Sans\ Mono\ 9
+endif
 
 " (e) Native tab labels
 " (a) Autoselect: Visually selected text is available to windowing system
