@@ -5,7 +5,7 @@ import qualified XMonad.Actions.Search as S
 import XMonad.Actions.Search
 import qualified Data.Map as M
 import XMonad.Hooks.DynamicLog
-import XMonad.Util.Run(spawnPipe)
+import XMonad.Util.Run (spawnPipe, unsafeSpawn)
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName
 import qualified XMonad.StackSet as W
@@ -14,7 +14,7 @@ import XMonad.Layout.NoBorders
 import System.IO
 
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
-   [  ((modMask,  xK_p), spawn "dmenu_run -b -nb '#000' -nf '#fff' -sb '#fff' -sf '#000'")
+   [  ((modMask,  xK_p), unsafeSpawn "dmenu_run -b -nb '#000' -nf '#fff' -sb '#fff' -sf '#000'")
    ]
 
 

@@ -1,16 +1,17 @@
-Config { font = "xft:Bitstream Vera Sans Mono:size=12:antialias=true"
+Config { font = "xft:Bitstream Vera Sans Mono:size=10:antialias=true"
        , bgColor = "black"
        , fgColor = "white"
        , position = Top
        , lowerOnStart = True
-       , commands = [ Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
-                    , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
-                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+       , commands = [ Run DynNetwork ["-t","net:<rx>Kbs/<tx>Kbs","-L","0","-H","32","--normal","green","--high","red","-m","3"] 10
+                    , Run MultiCpu ["-t","cpu:<total>%","-L","3","-H","50","--normal","green","--high","red","-m","2"] 10
+                    , Run Memory ["-t","mem:<usedratio>%","-m","2"] 10
+                    , Run DiskIO [("/", "disk:<read>/<write>")] ["-m","4"] 10
                     , Run Com "uname" ["-s","-r"] "" 36000
     		           , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ [%cpu% | %memory% | %eth0%]   [<fc=#ee9a00>%date%</fc>]"
+       , template = "%StdinReader% }{ [%multicpu% | %memory% | %dynnetwork% | %diskio%]   [<fc=#ee9a00>%date%</fc>]"
        }
