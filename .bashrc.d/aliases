@@ -9,5 +9,8 @@ alias la='ll -a'
 alias "youtube-dl"='youtube-dl --title --no-mtime'
 [[ "$PLATFORM" == "mac" ]] && alias math="/Applications/Mathematica.app/Contents/MacOS/MathKernel"
 
+# Can't seem to stop typing mvim on linux
+[[ "$PLATFORM" == "linux" ]] && alias mvim='gvim'
+
 # Arch linux
 [[ "$PLATFORM" == "linux" ]] && alias packer='packer --noconfirm'
