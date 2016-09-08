@@ -62,3 +62,6 @@ autocmd BufWinLeave * call clearmatches()
 
 " Highlight doxygen comments in .c and .h files
 autocmd BufRead,BufNewFile *.h,*.c set filetype=c.doxygen
+
+" Spellcheck git commits
+autocmd FileType gitcommit setlocal spell
