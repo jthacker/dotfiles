@@ -18,6 +18,8 @@ set softtabstop=4
 "set smartindent
 "set autoindent
 
+set textwidth=80
+
 set shortmess=atI	"Message abreviations
 "set scrolloff=10   "Keep n lines around cursor. Nice for being able to scroll
 "past the end of the file but bad because when you click into the buffer then
@@ -42,6 +44,8 @@ let g:lisp_rainbow=0
 "Write with sudo
 cmap w!! %!sudo tee > /dev/null %
 
+" Disable folding in vim-markdown
+let g:vim_markdown_folding_disabled = 1
 
 " Easier split navigation
 " Use ctrl-[hjkl] to select the active split!
