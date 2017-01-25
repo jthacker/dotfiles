@@ -9,6 +9,9 @@ endif
 " (c) Prefer console dialogs instead of gui
 set guioptions=aec
 
+" Allow right click menu
+set mousemodel=popup
+
 " Disable bell
 set novb
 

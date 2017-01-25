@@ -14,3 +14,5 @@ alias "youtube-dl"='youtube-dl --title --no-mtime'
 
 # Arch linux
 [[ "$PLATFORM" == "linux" ]] && alias packer='packer --noconfirm'
+
+alias mvim='gvim'

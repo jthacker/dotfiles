@@ -24,5 +24,7 @@ elif [[ "$PLATFORM" == "linux" ]]; then
 fi
 [ -f "$bcpath" ] && source "$bcpath"
 
+eval `keychain --eval id_rsa --quiet`
+
 ## Cleanup ##
 unset PLATFORM
