@@ -9,26 +9,27 @@ fi
 export PLATFORM
 
 if  [[ "$PLATFORM" == "mac" ]]; then
-    export PATH=/usr/local/bin:$PATH
+    export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 fi
 # Add my bin to the path
 export PATH=~/.bin:$PATH
+export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
 
 . $HOME/.bashrc
 
 # Bash completion
 if [[ "$PLATFORM" == "mac" ]]; then
-    bcpath=`brew --prefix`/etc/bash_completion
+    bcpath=/usr/local/share/bash-completion/bash_completion
 elif [[ "$PLATFORM" == "linux" ]]; then
     bcpath=/etc/bash_completion
 fi
 [ -f "$bcpath" ] && source "$bcpath"
 
-[ -f ~/.gpg-agent-info ] && source ~/.gpg-agent-info
-if [ -S "${GPG_AGENT_INFO%%:*}" ]; then
-    export GPG_AGENT_INFO
-else
-    eval $( gpg-agent --daemon --write-env-file ~/.gpg-agent-info )
+gpgconf --launch gpg-agent
+export SSH_AUTH_SOCK=~/.gnupg/S.gpg-agent.ssh
+
+if [[ ! -z "$GOPATH" ]]; then
+    export PATH=$PATH:$GOPATH/bin
 fi
 
 ## Cleanup ##

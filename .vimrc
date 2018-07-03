@@ -1,5 +1,20 @@
-"Now vim plugins can go in their own directories under ~/.vim/bundle/"
-call pathogen#infect()
+set nocompatible	"Don't worry about compatibility with vi
+filetype off
+set runtimepath+=~/.vim/bundle/vundle
+call vundle#rc()
+
+" Vundle Bundles
+Bundle 'gmarik/vundle'
+Bundle 'nanotech/jellybeans.vim'
+Bundle 'kovisoft/slimv'
+Bundle 'tpope/vim-fugitive'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'othree/yajs.vim'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'scrooloose/nerdtree'
+Bundle 'rdnetto/YCM-Generator'
+Bundle 'fatih/vim-go'
+Bundle 'google/vim-jsonnet'
 
 set autoread 	"Auto reloads changes
 
@@ -15,10 +30,14 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-"set smartindent
+set smartindent
 "set autoindent
 
 set textwidth=80
+
+" Open new splits to the right or below the others
+set splitbelow
+set splitright
 
 set shortmess=atI	"Message abreviations
 "set scrolloff=10   "Keep n lines around cursor. Nice for being able to scroll
@@ -31,7 +50,6 @@ set ruler		"Show line and column number of cursor
 set number		"Show line numbers
 
 "Next 3 required for powerline
-set nocompatible	"Don't worry about compatibility with vi
 "set laststatus=2	"Always show statusline
 set encoding=utf-8	"Show unicode glyphs
 
@@ -43,6 +61,9 @@ let g:lisp_rainbow=0
 
 "Write with sudo
 cmap w!! %!sudo tee > /dev/null %
+
+" Active directory is always the one where the active buffer is located
+set autochdir
 
 " Disable folding in vim-markdown
 let g:vim_markdown_folding_disabled = 1
@@ -69,3 +90,26 @@ autocmd BufRead,BufNewFile *.h,*.c set filetype=c.doxygen
 
 " Spellcheck git commits
 autocmd FileType gitcommit setlocal spell
+
+" Show 80 column limit
+set colorcolumn=79
+
+" Automatically write files when running commands like make
+set autowrite
+
+" Go commands
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+
+" YCM
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+
+" Toggle visibility of NerdTree with ctrl-n
+map <C-n> :NERDTreeToggle<CR>
+
+" Set NerdTree to open path of current buffer
+let NERDTreeChDirMode=2
+
+" jsonnet specific config
+au FileType jsonnet setl sw=2 sts=2 et
