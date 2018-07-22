@@ -1,20 +1,22 @@
 set nocompatible	"Don't worry about compatibility with vi
 filetype off
-set runtimepath+=~/.vim/bundle/vundle
-call vundle#rc()
+set runtimepath+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " Vundle Bundles
-Bundle 'gmarik/vundle'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'kovisoft/slimv'
-Bundle 'tpope/vim-fugitive'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'othree/yajs.vim'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'scrooloose/nerdtree'
-Bundle 'rdnetto/YCM-Generator'
-Bundle 'fatih/vim-go'
-Bundle 'google/vim-jsonnet'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'kovisoft/slimv'
+Plugin 'tpope/vim-fugitive'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'othree/yajs.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/nerdtree'
+Plugin 'rdnetto/YCM-Generator'
+Plugin 'fatih/vim-go'
+Plugin 'google/vim-jsonnet'
+
+call vundle#end()
 
 set autoread 	"Auto reloads changes
 
@@ -113,3 +115,6 @@ let NERDTreeChDirMode=2
 
 " jsonnet specific config
 au FileType jsonnet setl sw=2 sts=2 et
+
+" yaml specific config
+au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
