@@ -1,0 +1,29 @@
+#!/bin/bash
+set -eu
+
+function usage {
+    echo 'usage: git-new-feature-branch <NAME>'
+    exit 1
+}
+
+CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`
+
+if [ $# -ne 1 ]; then
+    read -p "No branch specified, close current branch \"${CURRENT_BRANCH}\"? [y/N] " resp
+    if [ "$resp" != "y" ]; then
+        usage
+    fi
+    NAME=${CURRENT_BRANCH}
+else
+    NAME=$1
+fi
+
+(git branch | grep "$NAME" &> /dev/null) || (echo "Invalid branch \"${NAME}\"" && exit 1)
+
+if [ "$CURRENT_BRANCH" == "$NAME" ]; then
+    git checkout master
+fi
+
+git branch -d $NAME
+git branch -d -r origin/$NAME
+git push origin --delete $NAME

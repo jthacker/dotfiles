@@ -1,0 +1,15 @@
+#!/bin/bash
+set -eu
+
+function usage {
+    echo 'git-new-feature-branch <NAME>'
+    exit 1
+}
+
+if [ $# -ne 1 ]; then
+    usage
+fi
+NAME=$1
+
+git checkout -b $NAME
+git push -u origin $NAME
