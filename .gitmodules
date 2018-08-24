@@ -1,0 +1,3 @@
+[submodule "/Users/jthacker/.vim/bundle/vundle"]
+	path = /Users/jthacker/.vim/bundle/vundle
+	url = https://github.com/VundleVim/Vundle.vim.git

@@ -1,6 +1,6 @@
 set nocompatible	"Don't worry about compatibility with vi
 filetype off
-set runtimepath+=~/.vim/bundle/Vundle.vim
+set runtimepath+=~/.vim/bundle/vundle
 call vundle#begin()
 
 " Vundle Bundles
