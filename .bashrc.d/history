@@ -1,5 +1,5 @@
 #!/bin/sh
-export HISTCONTROL=erasedups
+export HISTCONTROL="erasedups:ignorespace"
 export HISTSIZE=10000
 shopt -s histappend
 bind '"\e[A"':history-search-backward
